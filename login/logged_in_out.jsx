@@ -1,33 +1,3 @@
-if (Meteor.isClient) {
-  Meteor.startup(function () {
-    // Use Meteor.startup to render the component after the page is ready
-    ReactDOM.render( <LoginButtons user={Meteor.user()} loggedIn={Meteor.loggingIn()}/>,
-                document.getElementById("login-button-target"));
-  });
-}
-
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
-}
-
-LoginButtons = React.createClass( {
-  render() {
-    if ( this.props.user) {
-      if ( ! this.props.loggedIn) {
-        return(
-          <LoginButtonsLoggedIn user={this.props.user} />
-        );
-      }
-    } else {
-      return(
-        <LoginButtonsLoggedOut loggedIn={this.props.loggedIn} />
-      );
-    }
-  }
-});
-
 LoginButtonsLoggedIn = React.createClass( {
   render() {
     return(
@@ -73,10 +43,6 @@ LoginButtonsLoggedOut = React.createClass( {
     return loginButtonsSession.get('dropdownVisible');
   },
 
-  services() {
-    return Accounts._loginButtons.getLoginServices();
-  },
-
   isPasswordService() {
     return this.name === 'password';
   },
@@ -89,8 +55,12 @@ LoginButtonsLoggedOut = React.createClass( {
     return Accounts._loginButtons.hasPasswordService();
   },
   render() {
+    console.debug( ['this.services()', this.services()]);
     if ( this.services()) {
+      console.debug( ['this.configurationLoaded()', this.configurationLoaded()]);
+
       if ( this.configurationLoaded()) {
+        console.debug( ['this.dropdown()', this.dropdown()]);
         if( this.dropdown()) {
           return <loginButtonsLoggedOutDropdown />
         } else {
