@@ -1,11 +1,3 @@
-LoginButtonsLoggedIn = React.createClass( {
-  render() {
-    return(
-      <p>LoginButtonsLoggedIn</p>
-    );
-  }
-});
-
 LoginButtonsLoggedOut = React.createClass( {
   dropdown: function() {
     return Accounts._loginButtons.dropdown();
@@ -58,7 +50,6 @@ LoginButtonsLoggedOut = React.createClass( {
     console.debug( ['this.services()', this.services()]);
     if ( this.services()) {
       console.debug( ['this.configurationLoaded()', this.configurationLoaded()]);
-
       if ( this.configurationLoaded()) {
         console.debug( ['this.dropdown()', this.dropdown()]);
         if( this.dropdown()) {
