@@ -1,13 +1,13 @@
 i18n.setDefaultLanguage('en')
 
 accountsUIReactBootstrap3 = {
-	setLanguage: function (lang) {
+	setLanguage(lang) {
 		return i18n.setLanguage(lang)
 	},
-	getLanguage: function () {
+	getLanguage() {
 		return i18n.getLanguage()
 	},
-	map: function (lang, obj) {
+	map(lang, obj) {
 		return i18n.map(lang, obj)
 	}
 }

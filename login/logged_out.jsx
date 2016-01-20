@@ -1,11 +1,11 @@
 LoginButtonsLoggedOut = React.createClass( {
-  dropdown: function() {
+  dropdown() {
     return Accounts._loginButtons.dropdown();
   },
-  services: function() {
+  services() {
     return Accounts._loginButtons.getLoginServices();
   },
-  singleService: function() {
+  singleService() {
     var services = Accounts._loginButtons.getLoginServices();
     if (services.length !== 1){
       throw new Error(
@@ -13,7 +13,7 @@ LoginButtonsLoggedOut = React.createClass( {
     }
     return services[0];
   },
-  configurationLoaded: function() {
+  configurationLoaded() {
     return Accounts.loginServicesConfigured();
   },
   // additional classes that can be helpful in styling the dropdown
