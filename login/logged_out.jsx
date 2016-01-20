@@ -57,7 +57,7 @@ LoginButtonsLoggedOut = React.createClass( {
         } else {
           if ( ! this.props.logginIn)  {
             return(
-              <div class="navbar-form">
+              <div className="navbar-form">
                 <loginButtonsLoggedOutSingleLoginButton service={this.singleService}/>
               </div>
             );
@@ -65,7 +65,7 @@ LoginButtonsLoggedOut = React.createClass( {
         }
       } else {
         return(
-          <div class="no-services">{i18n( 'loginButtonsLoggedOut.noLoginServices')}</div>
+          <div className="no-services">{i18n( 'loginButtonsLoggedOut.noLoginServices')}</div>
         );
       }
     }
